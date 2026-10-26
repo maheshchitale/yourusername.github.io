@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <style>
+        /* Developer-themed page background shared by all pages */
+body {
+    background-color: #FEFAFA;
+    background-image: url("dev-hero.svg"), url("dev-pattern.svg");
+    background-repeat: no-repeat, repeat;
+    background-position: top center, 0 0;
+    background-size: 100% 560px, 400px 400px;
+}
+
+/* keep text over the pattern easy to read */
+footer {
+    background-color: rgba(254, 250, 250, 0.9);
+    margin-top: 3rem;
+    padding-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+    body {
+        background-size: auto 420px, 300px 300px;
+    }
+}
+        /* ===== Navbar ===== */
+header .nav-pills {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(8, 47, 95, 0.12);
+    border-radius: 50rem;
+    padding: 6px;
+    gap: 4px;
+    box-shadow: 0 8px 24px rgba(8, 47, 95, 0.12);
+}
+
+header .nav-pills .nav-link {
+    color: #082F5F;
+    font-weight: 500;
+    border-radius: 50rem;
+    padding: 9px 18px;
+    transition: background-color .25s ease, color .25s ease, transform .25s ease;
+}
+
+header .nav-pills .nav-link:hover {
+    background-color: #dcebfb;
+    color: #082F5F;
+    transform: translateY(-1px);
+}
+
+/* active page */
+header .nav-pills .nav-link.active {
+    background: linear-gradient(135deg, #082F5F 0%, #1b66b8 100%);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(8, 47, 95, 0.35);
+}
+
+header .nav-pills .nav-link:focus-visible {
+    outline: 3px solid #74c0fc;
+    outline-offset: 2px;
+}
+
+/* Hire me button */
+header .btn-hire {
+    background: linear-gradient(135deg, #d31818, #f0523c);
+    color: #fff;
+    border: 0;
+    border-radius: 50rem;
+    padding: 11px 28px;
+    font-weight: 500;
+    box-shadow: 0 6px 16px rgba(211, 24, 24, 0.3);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+header .btn-hire:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(211, 24, 24, 0.4);
+}
+
+header .btn-hire:focus-visible {
+    outline: 3px solid #74c0fc;
+    outline-offset: 2px;
+}
+
+/* small screens: button on top, full-width nav below */
+@media (max-width: 767px) {
+    header .row > .col-3:first-child { display: none; }
+    header .row > .col-6 { flex: 0 0 100%; width: 100%; order: 2; margin-top: 14px; }
+    header .row > .col-3.text-center { flex: 0 0 100%; width: 100%; order: 1; }
+    header .nav-pills { flex-wrap: wrap; }
+    header .nav-pills .nav-link { padding: 8px 12px; font-size: 14px; }
+}
+        body {
+            background-color: #FEFAFA;
+        }
+        .contact_heading h1{
+            font-family: 'Bodoni Moda', serif;
+            font-size: 60px;
+            font-weight: 400;
+            color: #082F5F;
+        }   
+        .contact_card{
+            display: flex;
+            /* flex-wrap: nowrap; */
+            text-align: center;
+
+            flex-direction: row;
+            /* width: 1300px;     */
+            gap: 20px;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .card1{
+            
+            border:2px solid transparent;
+            padding: 30px;
+            background-color: aliceblue;
+            width: 350px;
+            border-radius: 20px;
+        }
+        .card1 p{
+            font-family: 'Bodoni Moda', serif;
+            font-size: 25px;
+            font-weight: 400;
+            color: #082F5F;
+        }
+        </style>
+</head>
+<body>
+     <header>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <nav>
+                        <ul class="nav nav-pills nav-fill">
+                            <li class="nav-item">
+                                <a class="nav-link " href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="portfolio.html">Portfolio</a>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-4 text-center">
+                    <button class="btn btn-primary ">Hire me</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 text-center contact_heading">
+                <h1>Contact Me</h1>
+            </div>
+        </div>
+        <div class="contact_card mt-5">
+            <div class="card1">
+                <i class="fa-solid fa-mobile fa-2xl" style="color: rgb(211, 24, 24);"></i>
+                <p>+91 898391455</p>
+
+            </div>
+            <div class="card1">
+                <i class="fa-solid fa-map-location-dot fa-2xl" style="color: rgb(211, 24, 24);"></i>
+                <p>Ahiyanagar</p>
+            </div>
+            <div class="card1">
+                <i class="fa-solid fa-inbox fa-2xl" style="color: rgb(211, 24, 24);"></i>
+                <p>chitalemahesh720@gmail.com</p>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12">
+                <form>
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea class="form-control" id="message" rows="5" placeholder="Enter your message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2024 Mahesh Chitale. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

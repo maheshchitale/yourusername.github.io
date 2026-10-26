@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="navbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        body {
+            background-color: #FEFAFA;
+            background-image: url("dev-hero.svg"), url("dev-pattern.svg");
+            background-repeat: no-repeat, repeat;
+            background-position: top center, 0 0;
+            background-size: 100% 560px, 400px 400px;
+        }
+
+        /* keep text over the pattern easy to read */
+        footer {
+            background-color: rgba(254, 250, 250, 0.9);
+            margin-top: 3rem;
+            padding-bottom: 1rem;
+        }
+
+        @media (max-width: 767px) {
+            body {
+                background-size: auto 420px, 300px 300px;
+            }
+        }
+
+        header .nav-pills {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(8, 47, 95, 0.12);
+            border-radius: 50rem;
+            padding: 6px;
+            gap: 4px;
+            box-shadow: 0 8px 24px rgba(8, 47, 95, 0.12);
+        }
+
+        header .nav-pills .nav-link {
+            color: #082F5F;
+            font-weight: 500;
+            border-radius: 50rem;
+            padding: 9px 18px;
+            transition: background-color .25s ease, color .25s ease, transform .25s ease;
+        }
+
+        header .nav-pills .nav-link:hover {
+            background-color: #dcebfb;
+            color: #082F5F;
+            transform: translateY(-1px);
+        }
+
+        /* active page */
+        header .nav-pills .nav-link.active {
+            background: linear-gradient(135deg, #082F5F 0%, #1b66b8 100%);
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(8, 47, 95, 0.35);
+        }
+
+        header .nav-pills .nav-link:focus-visible {
+            outline: 3px solid #74c0fc;
+            outline-offset: 2px;
+        }
+
+        /* Hire me button */
+        header .btn-hire {
+            background: linear-gradient(135deg, #d31818, #f0523c);
+            color: #fff;
+            border: 0;
+            border-radius: 50rem;
+            padding: 11px 28px;
+            font-weight: 500;
+            box-shadow: 0 6px 16px rgba(211, 24, 24, 0.3);
+            transition: transform .25s ease, box-shadow .25s ease;
+        }
+
+        header .btn-hire:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(211, 24, 24, 0.4);
+        }
+
+        header .btn-hire:focus-visible {
+            outline: 3px solid #74c0fc;
+            outline-offset: 2px;
+        }
+
+        body {
+            background-color: #FEFAFA;
+        }
+
+        .about_content {
+            display: flex;
+            flex-direction: row;
+
+        }
+
+        .about_heading h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 60px;
+            font-weight: 400;
+            color: #082F5F;
+        }
+
+        .about_content h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 40px;
+            font-weight: 400;
+            color: #082F5F;
+        }
+
+        .about_content3 h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 40px;
+            font-weight: 400;
+            color: #082F5F;
+        }
+
+
+        /* Education timeline */
+        .education_heading h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 60px;
+            font-weight: 400;
+            color: #082F5F;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding-left: 40px;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 11px;
+            top: 8px;
+            bottom: 8px;
+            width: 3px;
+            border-radius: 3px;
+            background: linear-gradient(#082F5F, #74c0fc);
+        }
+
+        .timeline_item {
+            position: relative;
+            background-color: aliceblue;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 24px 30px;
+            margin-bottom: 24px;
+            transition: border-color .2s ease;
+        }
+
+        .timeline_item:hover {
+            border-color: #082F5F;
+        }
+
+        .timeline_item::before {
+            content: "";
+            position: absolute;
+            left: -37px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: rgb(211, 24, 24);
+            border: 4px solid #FEFAFA;
+            box-shadow: 0 0 0 2px rgb(211, 24, 24);
+        }
+
+        .timeline_item h3 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 25px;
+            font-weight: 400;
+            color: #082F5F;
+            margin-bottom: 4px;
+        }
+
+        .timeline_item .institute {
+            font-weight: 500;
+            color: #082F5F;
+            margin-bottom: 4px;
+        }
+
+        .timeline_item .edu_year {
+            display: inline-block;
+            background-color: #fff;
+            color: #082F5F;
+            border: 1px solid #082F5F;
+            border-radius: 50rem;
+            padding: 2px 14px;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .timeline_item p {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 767px) {
+            .education_heading h1 {
+                font-size: 40px;
+            }
+
+            .timeline_item {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <nav>
+                        <ul class="nav nav-pills nav-fill">
+                            <li class="nav-item">
+                                <a class="nav-link " href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="portfolio.html">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-3 text-center">
+                    <a href="contact.html" class="btn btn-hire"><span class="hire_icon"><i
+                                class="fa-solid fa-briefcase"></i></span>Hire me<i
+                            class="fa-solid fa-arrow-right hire_arrow"></i></a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section>
+
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 text-center about_heading">
+                    <h1 class="">About Me</h1>
+                    <!-- <p>I'm a passionate developer with experience in creating modern web applications.</p> -->
+                </div>
+
+            </div>
+            <div class="row about_content mt-5">
+                <div class="col-6 about_content1">
+                    <h2>Designing With Passion While Exploring The World</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper
+                        mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+                        tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper
+                        mattis, pulvinar dapibus leo.
+
+                        Let's talk with me.</p>
+                </div>
+                <div class="col-6 about_content2">
+                    <h2>I Create Products Not Just Arts</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper
+                        mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit
+                        tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.
+
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper
+                        mattis, pulvinar dapibus leo.
+
+                        Let's talk with me.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6 about_content3">
+                    <h2>Frontend and Backend Developer</h2>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec
+                        ullamcorper mattis, pulvinar dapibus leo. Lorem ipsum dolor sit amet, consectetur
+                        adipisci elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo</p>
+
+                    <a href="resume.pdf" download>Download Resume</a>
+                </div>
+
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 text-center education_heading">
+                    <h1>Education</h1>
+                </div>
+            </div>
+            <div class="timeline mt-4">
+                <div class="timeline_item">
+                    <h3>Bachelor of Engineering in Computer Engineering</h3>
+                    <p class="institute">Rajiv Gandhi College of Engineering, Ahilyanagar</p>
+                    <span class="edu_year">2023 – 2027</span>
+                    <p>Studied programming, data structures, databases and web development. Built several web projects,
+                        including my portfolio and an e-commerce store.</p>
+                </div>
+                <div class="timeline_item">
+                    <h3>Higher Secondary Certificate (HSC), Science</h3>
+                    <p class="institute">Dada patil Mahavidyalaya, Karjat</p>
+                    <span class="edu_year">2021 – 2023</span>
+                    <p>Focused on Physics, Chemistry, Mathematics and Computer Science.</p>
+                </div>
+                <div class="timeline_item">
+                    <h3>Secondary School Certificate (SSC)</h3>
+                    <p class="institute">Shree Gurudatta vidyalaya, Karjat</p>
+                    <span class="edu_year">2020</span>
+                    <p>Completed secondary education with a strong interest in mathematics and computers.</p>
+                </div>
+                <div class="timeline_item">
+                    <h3>Web Development Certification</h3>
+                    <p class="institute">Upskill IT training Institute</p>
+                    <span class="edu_year">2026</span>
+                    <p>Completed a hands-on course in full stack web development covering HTML, CSS, JavaScript, Node.js
+                        and databases.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 text-center about_heading">
+                    <h1>Stay in Touch</h1>
+
+                    <div class="d-flex align-items-center">
+                        <input type="text" class="w-75" placeholder="Enter your email">
+                        <button class="btn btn-primary mt-3 ms-2 w-50">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2024 Mahesh Chitale. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

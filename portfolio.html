@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | Mahesh Chitale</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <style>
+        /* Developer-themed page background shared by all pages */
+body {
+    background-color: #FEFAFA;
+    background-image: url("dev-hero.svg"), url("dev-pattern.svg");
+    background-repeat: no-repeat, repeat;
+    background-position: top center, 0 0;
+    background-size: 100% 560px, 400px 400px;
+}
+
+/* keep text over the pattern easy to read */
+footer {
+    background-color: rgba(254, 250, 250, 0.9);
+    margin-top: 3rem;
+    padding-bottom: 1rem;
+}
+
+@media (max-width: 767px) {
+    body {
+        background-size: auto 420px, 300px 300px;
+    }
+}
+        /* ===== Navbar ===== */
+header .nav-pills {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(8, 47, 95, 0.12);
+    border-radius: 50rem;
+    padding: 6px;
+    gap: 4px;
+    box-shadow: 0 8px 24px rgba(8, 47, 95, 0.12);
+}
+
+header .nav-pills .nav-link {
+    color: #082F5F;
+    font-weight: 500;
+    border-radius: 50rem;
+    padding: 9px 18px;
+    transition: background-color .25s ease, color .25s ease, transform .25s ease;
+}
+
+header .nav-pills .nav-link:hover {
+    background-color: #dcebfb;
+    color: #082F5F;
+    transform: translateY(-1px);
+}
+
+/* active page */
+header .nav-pills .nav-link.active {
+    background: linear-gradient(135deg, #082F5F 0%, #1b66b8 100%);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(8, 47, 95, 0.35);
+}
+
+header .nav-pills .nav-link:focus-visible {
+    outline: 3px solid #74c0fc;
+    outline-offset: 2px;
+}
+
+/* Hire me button */
+header .btn-hire {
+    background: linear-gradient(135deg, #d31818, #f0523c);
+    color: #fff;
+    border: 0;
+    border-radius: 50rem;
+    padding: 11px 28px;
+    font-weight: 500;
+    box-shadow: 0 6px 16px rgba(211, 24, 24, 0.3);
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+header .btn-hire:hover {
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(211, 24, 24, 0.4);
+}
+
+header .btn-hire:focus-visible {
+    outline: 3px solid #74c0fc;
+    outline-offset: 2px;
+}
+
+/* small screens: button on top, full-width nav below */
+@media (max-width: 767px) {
+    header .row > .col-3:first-child { display: none; }
+    header .row > .col-6 { flex: 0 0 100%; width: 100%; order: 2; margin-top: 14px; }
+    header .row > .col-3.text-center { flex: 0 0 100%; width: 100%; order: 1; }
+    header .nav-pills { flex-wrap: wrap; }
+    header .nav-pills .nav-link { padding: 8px 12px; font-size: 14px; }
+}
+        body {
+            background-color: #FEFAFA;
+        }
+
+        .portfolio_heading h1 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 60px;
+            font-weight: 400;
+            color: #082F5F;
+        }
+
+        .portfolio_heading p {
+            max-width: 560px;
+            margin: 0 auto;
+        }
+
+        /* Filter buttons */
+        .filter_bar {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .filter_bar .btn {
+            border-radius: 50rem;
+            color: #082F5F;
+            border: 2px solid #082F5F;
+            background: transparent;
+        }
+
+        .filter_bar .btn.active,
+        .filter_bar .btn:hover {
+            background-color: #082F5F;
+            color: #fff;
+        }
+
+        /* Project cards (same look as the contact cards) */
+        .project_card {
+            background-color: aliceblue;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform .2s ease, border-color .2s ease;
+        }
+
+        .project_card:hover {
+            transform: translateY(-4px);
+            border-color: #082F5F;
+        }
+
+        .project_thumb {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            background: linear-gradient(135deg, #082F5F, #74c0fc);
+        }
+
+        .project_thumb.alt1 {
+            background: linear-gradient(135deg, #082F5F, #d31818);
+        }
+
+        .project_thumb.alt2 {
+            background: linear-gradient(135deg, #74c0fc, #082F5F);
+        }
+
+        .project_body {
+            padding: 24px 30px 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project_body h3 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 25px;
+            font-weight: 400;
+            color: #082F5F;
+        }
+
+        .project_body p {
+            flex-grow: 1;
+        }
+
+        .tech_badge {
+            background-color: #fff;
+            color: #082F5F;
+            border: 1px solid #082F5F;
+            font-weight: 400;
+            margin: 0 4px 4px 0;
+        }
+
+        .project_links a {
+            color: #082F5F;
+            text-decoration: none;
+            margin-right: 16px;
+            font-weight: 500;
+        }
+
+        .project_links a:hover {
+            color: rgb(211, 24, 24);
+        }
+
+        .project_links i {
+            margin-right: 6px;
+        }
+
+        /* Skills */
+        .skills_heading h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 40px;
+            font-weight: 400;
+            color: #082F5F;
+        }
+
+        .skill_chip {
+            display: inline-block;
+            background-color: aliceblue;
+            color: #082F5F;
+            border-radius: 50rem;
+            padding: 8px 20px;
+            margin: 6px;
+        }
+
+        .skill_chip i {
+            color: rgb(211, 24, 24);
+            margin-right: 8px;
+        }
+
+        /* CTA */
+        .cta_box {
+            background-color: aliceblue;
+            border-radius: 20px;
+            padding: 40px 20px;
+        }
+
+        .cta_box h2 {
+            font-family: 'Bodoni Moda', serif;
+            font-size: 40px;
+            font-weight: 400;
+            color: #082F5F;
+        }
+
+        @media (max-width: 767px) {
+            .portfolio_heading h1 {
+                font-size: 40px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-3"></div>
+                <div class="col-6">
+                    <nav>
+                        <ul class="nav nav-pills nav-fill">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">About</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="portfolio.html">Portfolio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-3 text-center">
+                    <button class="btn btn-primary ">Hire me</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 text-center portfolio_heading">
+                    <h1>My Portfolio</h1>
+                    <p class="lead">A selection of web applications I've designed and built, from first sketch to
+                        deployment.</p>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filter_bar mt-4" id="filters">
+                <button class="btn active" data-filter="all">All</button>
+                <button class="btn" data-filter="frontend">Frontend</button>
+                <button class="btn" data-filter="fullstack">Full Stack</button>
+            </div>
+
+            <!-- Projects: replace titles, descriptions and links with your real projects -->
+            <div class="row g-4 mt-2" id="projects">
+
+                <div class="col-12 col-md-6 col-lg-4 project" data-category="frontend">
+                    <div class="project_card">
+                        <div class="project_thumb"><i class="fa-solid fa-user fa-3x"></i></div>
+                        <div class="project_body">
+                            <h3>Personal Portfolio</h3>
+                            <p>A responsive multi-page portfolio with a clean navy and white design, built to showcase
+                                my work and make contact easy.</p>
+                            <div class="mb-3">
+                                <span class="badge rounded-pill tech_badge">HTML</span>
+                                <span class="badge rounded-pill tech_badge">CSS</span>
+                                <span class="badge rounded-pill tech_badge">Bootstrap</span>
+                            </div>
+                            <div class="project_links">
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i>Live demo</a>
+                                <a href="#"><i class="fa-brands fa-github"></i>Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 project" data-category="fullstack">
+                    <div class="project_card">
+                        <div class="project_thumb alt1"><i class="fa-solid fa-cart-shopping fa-3x"></i></div>
+                        <div class="project_body">
+                            <h3>E-Commerce Store</h3>
+                            <p>An online shop with product listings, a shopping cart, user login and an admin panel for
+                                managing products and orders.</p>
+                            <div class="mb-3">
+                                <span class="badge rounded-pill tech_badge">JavaScript</span>
+                                <span class="badge rounded-pill tech_badge">Node.js</span>
+                                <span class="badge rounded-pill tech_badge">MongoDB</span>
+                            </div>
+                            <div class="project_links">
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i>Live demo</a>
+                                <a href="#"><i class="fa-brands fa-github"></i>Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 project" data-category="frontend">
+                    <div class="project_card">
+                        <div class="project_thumb alt2"><i class="fa-solid fa-cloud-sun fa-3x"></i></div>
+                        <div class="project_body">
+                            <h3>Weather App</h3>
+                            <p>Search any city and see the current weather and a five-day forecast, using a public
+                                weather API.</p>
+                            <div class="mb-3">
+                                <span class="badge rounded-pill tech_badge">JavaScript</span>
+                                <span class="badge rounded-pill tech_badge">REST API</span>
+                                <span class="badge rounded-pill tech_badge">CSS</span>
+                            </div>
+                            <div class="project_links">
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i>Live demo</a>
+                                <a href="#"><i class="fa-brands fa-github"></i>Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 project" data-category="fullstack">
+                    <div class="project_card">
+                        <div class="project_thumb alt1"><i class="fa-solid fa-list-check fa-3x"></i></div>
+                        <div class="project_body">
+                            <h3>Task Manager</h3>
+                            <p>Create, edit and track tasks with due dates and priorities. Data is saved to a database
+                                so it's there when you come back.</p>
+                            <div class="mb-3">
+                                <span class="badge rounded-pill tech_badge">React</span>
+                                <span class="badge rounded-pill tech_badge">Express</span>
+                                <span class="badge rounded-pill tech_badge">MySQL</span>
+                            </div>
+                            <div class="project_links">
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i>Live demo</a>
+                                <a href="#"><i class="fa-brands fa-github"></i>Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 project" data-category="frontend">
+                    <div class="project_card">
+                        <div class="project_thumb"><i class="fa-solid fa-utensils fa-3x"></i></div>
+                        <div class="project_body">
+                            <h3>Restaurant Landing Page</h3>
+                            <p>A mobile-friendly landing page with a menu, photo gallery and table booking form for a
+                                local restaurant.</p>
+                            <div class="mb-3">
+                                <span class="badge rounded-pill tech_badge">HTML</span>
+                                <span class="badge rounded-pill tech_badge">Bootstrap</span>
+                                <span class="badge rounded-pill tech_badge">JavaScript</span>
+                            </div>
+                            <div class="project_links">
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i>Live demo</a>
+                                <a href="#"><i class="fa-brands fa-github"></i>Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-6 col-lg-4 project" data-category="fullstack">
+                    <div class="project_card">
+                        <div class="project_thumb alt2"><i class="fa-solid fa-comments fa-3x"></i></div>
+                        <div class="project_body">
+                            <h3>Blog Platform</h3>
+                            <p>Write and publish posts, comment on articles and sign in securely. Includes an admin
+                                dashboard for managing content.</p>
+                            <div class="mb-3">
+                                <span class="badge rounded-pill tech_badge">Node.js</span>
+                                <span class="badge rounded-pill tech_badge">MongoDB</span>
+                                <span class="badge rounded-pill tech_badge">JWT</span>
+                            </div>
+                            <div class="project_links">
+                                <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i>Live demo</a>
+                                <a href="#"><i class="fa-brands fa-github"></i>Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Skills -->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 text-center skills_heading">
+                    <h2>Tools I Work With</h2>
+                    <div class="mt-3">
+                        <span class="skill_chip"><i class="fa-brands fa-html5"></i>HTML</span>
+                        <span class="skill_chip"><i class="fa-brands fa-css3-alt"></i>CSS</span>
+                        <span class="skill_chip"><i class="fa-brands fa-js"></i>JavaScript</span>
+                        <span class="skill_chip"><i class="fa-brands fa-bootstrap"></i>Bootstrap</span>
+                        <span class="skill_chip"><i class="fa-brands fa-react"></i>React</span>
+                        <span class="skill_chip"><i class="fa-brands fa-node-js"></i>Node.js</span>
+                        <span class="skill_chip"><i class="fa-solid fa-database"></i>SQL / MongoDB</span>
+                        <span class="skill_chip"><i class="fa-brands fa-git-alt"></i>Git</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Call to action -->
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <div class="cta_box">
+                        <h2>Have a project in mind?</h2>
+                        <p>I'd love to hear about it. Send me a message and I'll reply as soon as I can.</p>
+                        <a href="contact.html" class="btn btn-primary">Contact me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p>&copy; 2024 Mahesh Chitale. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Filter projects by category
+        const buttons = document.querySelectorAll('#filters .btn');
+        const projects = document.querySelectorAll('#projects .project');
+
+        buttons.forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                buttons.forEach(function (b) { b.classList.remove('active'); });
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+                projects.forEach(function (p) {
+                    const show = filter === 'all' || p.dataset.category === filter;
+                    p.classList.toggle('d-none', !show);
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
