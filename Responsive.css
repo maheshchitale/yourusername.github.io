@@ -1,0 +1,69 @@
+/* ===== Responsive fixes shared by all pages ===== */
+img { max-width: 100%; height: auto; }
+
+/* fluid headings (cap at the original desktop sizes) */
+body .home_content h1,
+body .about_heading h1,
+body .contact_heading h1,
+body .education_heading h1,
+body .portfolio_heading h1 {
+    font-size: clamp(2.25rem, 7vw, 3.75rem);
+    line-height: 1.15;
+}
+
+body .about_content h2,
+body .about_content3 h2,
+body .skills_heading h2,
+body .cta_box h2 {
+    font-size: clamp(1.75rem, 4.5vw, 2.5rem);
+    line-height: 1.2;
+}
+
+/* contact cards wrap instead of overflowing */
+body .contact_card {
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+body .contact_card .card1 {
+    flex: 1 1 260px;
+    width: auto;
+    max-width: 340px;
+    padding: 24px;
+}
+
+body .contact_card .card1 p {
+    font-size: clamp(1.1rem, 3.5vw, 1.5rem);
+    overflow-wrap: anywhere;
+    margin-bottom: 0;
+    margin-top: .75rem;
+}
+
+/* subscribe box */
+.subscribe_box {
+    max-width: 600px;
+    margin: 1rem auto 0;
+}
+
+/* tablets and below */
+@media (max-width: 991px) {
+    .home_content { text-align: center; }
+    .home_content .lead { font-size: 1.1rem; }
+    body .container { padding-left: 20px; padding-right: 20px; }
+}
+
+/* phones */
+@media (max-width: 575px) {
+    .home_content { margin-left: 1rem !important; }
+    .timeline { padding-left: 32px; }
+    .timeline_item::before { left: -30px; }
+    .timeline::before { left: 8px; }
+    .filter_bar .btn { padding: 6px 16px; font-size: 14px; }
+    .skill_chip { padding: 6px 14px; font-size: 14px; }
+    .cta_box { padding: 28px 16px; }
+    footer p { font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; }
+}
